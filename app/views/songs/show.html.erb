@@ -3,3 +3,7 @@
   <p>length: <%= @song.length %></p>
   <p>play count: <%= @song.play_count %></p>
 </section>
+<h1>Awards for this Song:</h1>
+<% @awards.each do |award| %>
+<%= award.name %>
+<% end %>

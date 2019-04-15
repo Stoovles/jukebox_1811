@@ -5,6 +5,7 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
+    @awards = Award.awards_for_songs(@song)
   end
 
   def new

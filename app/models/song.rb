@@ -2,12 +2,17 @@ class Song < ApplicationRecord
   belongs_to :artist
   has_many :playlist_songs
   has_many :playlists, through: :playlist_songs
-  has_many :awards, through: :awards_songs
-  has_many :awards_songs
+  has_many :awards, through: :song_awards
+  has_many :song_awards
 
   validates_presence_of :title
 
   validates :length, presence: true, numericality: {
     greater_than_or_equal_to: 0
   }
+
+
+  def self.songs_for_awards(award)
+    joins(:song_awards).where(song_awards: {award_id: award})
+  end
 end
