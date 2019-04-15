@@ -1,0 +1,17 @@
+
+<div>
+  <%= form_for [:admin, @award], url: {action: "create"} do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true%>
+
+    <%= f.submit "Create Award", id: "medium-button" %>
+
+  <% end %>
+
+</div>
+
+
+<% @awards.each do |award| %>
+<%= award.name %>
+<% end %>
